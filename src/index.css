@@ -1,0 +1,38 @@
+:root {
+  --html-bg-color: #999;
+
+  /* container */
+  --container-bg-color: rgb(255, 255, 255);
+
+  /* table */
+  --table-border-color: #000;
+  
+  /* tbody */
+  --tbody-bg-color: #888;
+  
+  /* thead */
+  --thead-bg-color: #444;
+
+  /* input */
+  --input-border-color: #999;
+
+  /* button */
+  --button-text-color: rgb(88, 183, 235);
+  --button-text-hover-color: rgb(129, 199, 237);
+  
+}
+
+*, ::after, ::before {
+  box-sizing: border-box;
+}
+
+html {
+  background-color: var(--html-bg-color);
+  font-size: 62.5%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Verdana, sans-serif;
+}

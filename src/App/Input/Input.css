@@ -1,0 +1,14 @@
+.input {
+    border: .1rem solid var(--input-border-color);
+    border-radius: .3rem;
+    display: block;
+    padding: .75rem .45rem;
+    margin: 0 auto;
+    width: 80%;
+
+    outline: none;
+}
+
+.input::placeholder {
+    text-transform: capitalize;
+}

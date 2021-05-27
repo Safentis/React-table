@@ -1,0 +1,19 @@
+.table {
+    border-radius: .4rem;
+    border-spacing: .5rem;
+    box-shadow: .0rem .1rem .5rem var(--table-border-color);
+    padding: 1rem;
+    width: 100%;
+}
+
+.table__head {
+    
+}
+
+.table__body {
+    
+}
+
+.row {
+    height: 6rem;
+}

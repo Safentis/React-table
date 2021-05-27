@@ -1,0 +1,42 @@
+.button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    text-transform: uppercase;
+    transition: .2s;
+    background-color: rgb(24, 155, 116);
+}
+
+.button-delete,
+.button-edit,
+.button-save,
+.button-add {
+    background: center / contain no-repeat;
+    min-height: 3rem;
+    min-width: 3rem;
+    margin-top: 1.25rem;
+}
+
+.button-delete:hover,
+.button-edit:hover,
+.button-save:hover,
+.button-add:hover {
+    opacity: .7;
+}
+
+.button-add {
+    background-image: url('./plus.svg');
+}
+
+.button-edit {
+    background-image: url('./edit.svg');
+}
+
+.button-delete {
+    background-image: url('./remove.svg');
+}
+
+.button-save {
+    background-image: url('./check-mark.svg');
+}
