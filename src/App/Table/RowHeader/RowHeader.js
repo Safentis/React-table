@@ -7,16 +7,22 @@ import Input  from '../Input/Input';
 import Button from '../Button/Button';
 
 // HOC
-import row   from '../HOC/row';
+import row   from '../../HOC/row';
 
-const RowHeader = ({field, onChange, onAdd, onClear}) => {
+const RowHeader = ({field, onChange, onAdd, onClear, onRefresh}) => {
      
     const handleAdd = () => {
         onAdd(field);
         onClear();
     }
 
+    const handleRefresh = () => {
+        onRefresh();
+    }
+
     const COLUMN_CONTROLS = (
+        field
+        &&
         Object
             .entries(field)
             .map(([name, value], index) =>
@@ -35,6 +41,10 @@ const RowHeader = ({field, onChange, onAdd, onClear}) => {
             <Button 
                 className="button-add"
                 handler={handleAdd}
+            />
+            <Button 
+                className="button-refresh" 
+                handler={handleRefresh}
             />
         </Column>
     );

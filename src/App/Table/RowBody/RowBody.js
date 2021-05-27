@@ -7,7 +7,7 @@ import Input  from '../Input/Input';
 import Button from '../Button/Button';
 
 // HOC
-import row    from '../HOC/row';
+import row    from '../../HOC/row';
 
 const RowBody = ({index, field, record, recordID, onChange, onEdit, onDelete, onUpdate}) => {
 

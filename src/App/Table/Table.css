@@ -11,9 +11,19 @@
 }
 
 .table__body {
-    
+
+}
+
+.table__spiner {
+    align-items: center;
+    display: flex;
+    padding: 3rem;
+    justify-content: center;
 }
 
 .row {
-    height: 6rem;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    min-height: 6rem;
 }

@@ -11,12 +11,14 @@ function table(Component, url) {
             super(props);
             this.state = {
                 records: [],
+                spiner: true,
             };
 
             // Handlers
             this.onAdd         = this.onAdd.bind(this);
             this.onEdit        = this.onEdit.bind(this);
             this.onDelete      = this.onDelete.bind(this);
+            this.onRefresh     = this.onRefresh.bind(this);
 
             // Requests
             this.requestGet    = this.requestGet.bind(this);
@@ -28,20 +30,25 @@ function table(Component, url) {
         //* When component will be mounted, 
         //* we will be make a request on the server
         //* that to take all records
-        componentDidMount() { 
-            this.requestGet(); 
+        componentDidMount() {
+            this.requestGet()
         }
-
-
+        
+        
         async requestGet() {
             try {
+                //* Spiner state LOAD
+                this.setState({spiner: false});
+                
                 const req = await fetch(`${url}/api/records`);
                 const res = await req.json();
                 
                 this.setState({records: res});
-
             } catch(err) {
                 handleError(err);
+            } finally {
+                //* Spiner state DISLOAD
+                this.setState({spiner: true});
             }
         }
 
@@ -158,8 +165,15 @@ function table(Component, url) {
             }
         }
 
+
+        //* Handler onRefresh updates 
+        //* all records on the page
+        onRefresh() {
+            this.requestGet();
+        }
+
         render() {
-            return <Component {...this.props} {...this.state} onDelete={this.onDelete} onEdit={this.onEdit} onAdd={this.onAdd} />
+            return <Component {...this.props} {...this.state} onDelete={this.onDelete} onEdit={this.onEdit} onAdd={this.onAdd} onRefresh={this.onRefresh}/>
         }
     }
 }

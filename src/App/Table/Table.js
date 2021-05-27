@@ -1,22 +1,24 @@
-import React from 'react';
+import React  from 'react';
+import Loader from "react-loader-spinner";
 import './Table.css';
 
 // CONST
 import { URL_BASE } from '../appconstants.js';
 
 // COMPONENTS
-import RowBody      from '../RowBody/RowBody';
-import RowHeader    from '../RowHeader/RowHeader';
+import RowBody      from './RowBody/RowBody';
+import RowHeader    from './RowHeader/RowHeader';
 
 // HOC
 import table        from '../HOC/table';
 
 
-const Table = ({records, onEdit, onDelete, onAdd}) => {    
+const Table = ({records, spiner, onEdit, onDelete, onAdd, onRefresh}) => {    
 
     const ROW_HEADER_COMPONENT = (
         <RowHeader 
             onAdd={onAdd}
+            onRefresh={onRefresh}
         />
     );
 
@@ -36,13 +38,31 @@ const Table = ({records, onEdit, onDelete, onAdd}) => {
         )
     );
 
+    const TABLE_LOADER = (
+        <tr>
+            <td colSpan="6">
+                <Loader
+                    className="table__spiner"
+                    color={'#888'}
+                    type="Oval"
+                    height={400}
+                    width={400}
+                />
+            </td>
+        </tr>
+    )
+
     return (
         <table className="table">
             <thead className="table__head">
                 {ROW_HEADER_COMPONENT}
             </thead>
             <tbody className="table__body">
-                {ROW_BODY_COMPONENT}
+                {
+                    (spiner) 
+                    ? ROW_BODY_COMPONENT
+                    : TABLE_LOADER
+                }
             </tbody>
         </table>
     )

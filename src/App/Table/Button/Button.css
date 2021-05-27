@@ -8,6 +8,7 @@
     background-color: rgb(24, 155, 116);
 }
 
+.button-refresh,
 .button-delete,
 .button-edit,
 .button-save,
@@ -15,14 +16,16 @@
     background: center / contain no-repeat;
     min-height: 3rem;
     min-width: 3rem;
-    margin-top: 1.25rem;
+    /* margin-top: 1.25rem; */
 }
 
+.button-refresh:hover,
 .button-delete:hover,
 .button-edit:hover,
 .button-save:hover,
 .button-add:hover {
     opacity: .7;
+    transform: scale(1.15);
 }
 
 .button-add {
@@ -39,4 +42,9 @@
 
 .button-save {
     background-image: url('./check-mark.svg');
+}
+
+.button-refresh {
+    background-image: url('./refresh.svg');
+    transform: rotate(90deg);
 }
